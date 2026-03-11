@@ -35,10 +35,11 @@ size_t get_file_size(FILE *fp);
 int read_and_validate_args(FileList **filelist, char **argv, int argc);
 
 /**
- * Returns the hash index for a given word
- * (e.g., based on first character A-Z → index).
+ * Returns the hash bucket index for a given word based on its first character.
+ * A-Z or a-z → 0-25, digits → 26, other → 27.
+ * Returns -1 for NULL or empty input.
  */
-char get_word_index(char *word);
+int get_word_index(char *word);
 
 /**
  * Validates whether a given filename is acceptable
@@ -50,5 +51,6 @@ int valid_file_name(char *filename);
  * Validates an existing database file format before loading/updating.
  */
 int valid_database(FILE *fp);
+
 
 #endif

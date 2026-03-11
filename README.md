@@ -31,11 +31,10 @@ The program scans one or more `.txt` files passed as command-line arguments and 
 ├── database.h    # Prototypes for database operations
 ├── database.c    # Create, display, search, save, and update the inverted index
 ├── makefile      # Build system
-├── f1.txt        # Sample input files
-├── f2.txt
-├── f3.txt
-├── f4.txt
-└── obj/          # Object files generated at compile time (auto-created by make)
+├── file1.txt        # Sample input files
+├── file2.txt
+├── file3.txt
+└── file4.txt
 ```
 
 ---
@@ -60,9 +59,9 @@ HashTable[3]          (bucket for words starting with 'd')
     +-- MainNode["data", fileCount=2]
             |-- mainLink --> MainNode["dog", fileCount=1] --> NULL
             |
-            +-- SubNode["f1.txt", wordCount=3]
+            +-- SubNode["file1.txt", wordCount=3]
                     |
-                    +-- SubNode["f2.txt", wordCount=1] --> NULL
+                    +-- SubNode["file2.txt", wordCount=1] --> NULL
 ```
 
 ---
@@ -96,18 +95,18 @@ The program validates each argument before starting. Files that do not exist, ar
 **Example session:**
 
 ```
-./search.out f1.txt f2.txt f3.txt
+./search.out file1.txt file2.txt file3.txt
 
 ============================================================
                  File Validation Summary
 ============================================================
- INFO: File 'f1.txt' successfully inserted in the FileList
- INFO: File 'f2.txt' successfully inserted in the FileList
- INFO: File 'f3.txt' successfully inserted in the FileList
+ INFO: File 'file1.txt' successfully inserted in the FileList
+ INFO: File 'file2.txt' successfully inserted in the FileList
+ INFO: File 'file3.txt' successfully inserted in the FileList
 
               Valid files loaded successfully
 ============================================================
-FileList: -> f1.txt -> f2.txt -> f3.txt
+FileList: -> file1.txt -> file2.txt -> file3.txt
 
 ===== MENU =====
 1. Create Database
@@ -118,16 +117,16 @@ FileList: -> f1.txt -> f2.txt -> f3.txt
 0. Exit
 Enter choice: 1
 
-INFO: DATABASE successfully created for file f1.txt
-INFO: DATABASE successfully created for file f2.txt
-INFO: DATABASE successfully created for file f3.txt
+INFO: DATABASE successfully created for file file1.txt
+INFO: DATABASE successfully created for file file2.txt
+INFO: DATABASE successfully created for file file3.txt
 
 Enter choice: 3
 Enter word to search: data
 
 Word 'data' is present in (2) file
-In File: 'f1.txt' (3) Time
-In File: 'f2.txt' (1) Time
+In File: 'file1.txt' (3) Time
+In File: 'file2.txt' (1) Time
 ```
 
 ---

@@ -22,7 +22,7 @@
 #include "list.h"
 #include "validate.h"
 
-/* Initializes hash table with indices and NULL links.*/
+// Initializes hash table with indices and NULL links
 void initialize_hashTable(HashTable *hashTablle, int size)
 {
     for (int i = 0; i < size; i++)
@@ -138,7 +138,7 @@ int hashTable_insert_last(HashTable hashTablle[MAX_HASH_SIZE], char *filename, i
     return SUCCESS;
 }
 
-/* Creates a new MainNode for a given word.*/
+// Creates a new MainNode for a given word
 MainNode *create_mainNode(char *word, int fileCount)
 {
     MainNode *newMain = malloc(sizeof(MainNode));
@@ -152,7 +152,7 @@ MainNode *create_mainNode(char *word, int fileCount)
     return newMain;
 }
 
-/* Creates a new SubNode for a given filename and wordCount.*/
+// Creates a new SubNode for a given filename and wordCount
 SubNode *create_subNode(char *filename, int wordCount)
 {
     SubNode *newSub = malloc(sizeof(SubNode));
@@ -200,7 +200,7 @@ int delete_duplicate(FileList **filelist, char *filename)
     return FAILURE;
 }
 
-/* Prints the list of input filenames.*/
+// Prints the list of input filenames
 void print_fileList(FileList *fileList)
 {
     printf("FileList: ");

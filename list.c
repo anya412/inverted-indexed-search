@@ -33,8 +33,8 @@ void initialize_hashTable(HashTable *hashTablle, int size)
 }
 
 /**
- * Inserts a filename at the end of FileList.
- * Returns SUCCESS, FAILURE, or DUPLICATE.
+ * Inserts a filename at the end of FileList
+ * Returns SUCCESS, FAILURE, or DUPLICATE
  */
 int fileList_insert_last(FileList **filelist, char *filename)
 {
@@ -74,8 +74,8 @@ int fileList_insert_last(FileList **filelist, char *filename)
 }
 
 /**
- * Inserts a word into hash table at a given index.
- * Handles creation of MainNode (word) and SubNode (filename).
+ * Inserts a word into hash table at a given index
+ * Handles creation of MainNode (word) and SubNode (filename)
  */
 int hashTable_insert_last(HashTable hashTablle[MAX_HASH_SIZE], char *filename, int index, char *word)
 {
@@ -167,8 +167,8 @@ SubNode *create_subNode(char *filename, int wordCount)
 }
 
 /**
- * Deletes a duplicate filename from FileList.
- * Returns SUCCESS if deleted, FAILURE if not found.
+ * Deletes a duplicate filename from FileList
+ * Returns SUCCESS if deleted, FAILURE if not found
  */
 int delete_duplicate(FileList **filelist, char *filename)
 {

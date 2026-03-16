@@ -3,7 +3,6 @@
  *  Description : Implementation file for database operations in the 
  *                Inverted Search project. Handles creating, displaying,
  *                searching, saving, and updating the database.
- *
  ***********************************************************************/
 
 #include "database.h"

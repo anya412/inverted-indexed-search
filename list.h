@@ -17,19 +17,18 @@
  *                - create_subNode()
  *                - delete_duplicate()
  *                - print_fileList()
- * 
  ***********************************************************************/
 
 #ifndef LIST_H
 #define LIST_H
 
-/* Required Header Files */
+// Required Header Files
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
 
-/* Predefined Macros */
+// Predefined Macros
 #define MAX_FILENAME_LENGTH 20   // Maximum length of filename
 #define MAX_WORD_LENGTH 20       // Maximum length of a word
 #define MAX_HASH_SIZE 28         // Hash table size (A-Z + extra buckets)
@@ -83,39 +82,25 @@ typedef struct HashTable
 
 /* ----------- Function Prototypes ----------- */
 
-/**
- * Inserts a filename at the end of FileList.
- */
+// Inserts a filename at the end of FileList
 int fileList_insert_last(FileList **filelist, char * filename);
 
-/**
- * Initializes the hash table with NULL links.
- */
+// Initializes the hash table with NULL links
 void initialize_hashTable(HashTable *hashTablle,int size);
 
-/**
- * Inserts a word into hash table under a given index, along with filename.
- */
+// Inserts a word into hash table under a given index, along with filename
 int hashTable_insert_last(HashTable hashTablle[MAX_HASH_SIZE], char *filename, int index, char *word);
 
-/**
- * Creates a new MainNode for a word.
- */
+// Creates a new MainNode for a word
 MainNode *create_mainNode(char * word, int fileCount);
 
-/**
- * Creates a new SubNode for a filename and wordCount.
- */
+// Creates a new SubNode for a filename and wordCount
 SubNode *create_subNode(char *filename,int wordCount);
 
-/**
- * Deletes duplicate filenames from FileList.
- */
+// Deletes duplicate filenames from FileList
 int delete_duplicate(FileList **filelist, char *filename);
 
-/**
- * Prints the list of input files.
- */
+// Prints the list of input files
 void print_fileList(FileList *fileList);
 
 #endif

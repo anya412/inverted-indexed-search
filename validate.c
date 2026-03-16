@@ -1,6 +1,6 @@
 /***********************************************************************
  *  File name   : validate.c
- *  Description : Validation source file for the Inverted Search project.
+ *  Description : Validation source file for the Inverted Indexed Search project.
  *                Contains implementations for:
  *                - File size determination
  *                - File argument validation
@@ -14,7 +14,6 @@
  *                - get_word_index()
  *                - valid_file_name()
  *                - valid_database()
- *
  ***********************************************************************/
 
 #include "validate.h"
@@ -90,14 +89,14 @@ int read_and_validate_args(FileList **filelist, char **argv, int argc)
             continue;
         }
 
-        /* Validate that the extension is .txt */
+        // Validate that the extension is .txt
         if (valid_file_name(argv[i]) == FAILURE)
         {
             fprintf(stderr, " INFO: File '%s' must have a .txt extension\n", argv[i]);
             continue;
         }
 
-        /* Check that the file can actually be opened */
+        // Check that the file can actually be opened
         FILE *fp = fopen(argv[i], "r");
         if (fp == NULL)
         {
@@ -105,7 +104,7 @@ int read_and_validate_args(FileList **filelist, char **argv, int argc)
             continue;
         }
 
-        /* Reject empty files */
+        // Reject empty files
         if (get_file_size(fp) == 0)
         {
             fprintf(stderr, " INFO: File '%s' is empty\n", argv[i]);
@@ -153,7 +152,7 @@ int read_and_validate_args(FileList **filelist, char **argv, int argc)
  ***********************************************************************/
 int get_word_index(char *word)
 {
-    /* Guard against NULL pointer or empty string. */
+    // Guard against NULL pointer or empty string
     if (word == NULL || word[0] == '\0')
         return -1;
 
@@ -182,7 +181,7 @@ int valid_file_name(char *filename)
 
     size_t len = strlen(filename);
 
-    /* len < 5 rejects filenames shorter than "a.txt" (5 chars). */
+    /* len < 5 rejects filenames shorter than "a.txt" (5 chars) */
     if (len < 5 || strstr(filename + len - 4, ".txt") == NULL)
         return FAILURE;
 
@@ -202,8 +201,8 @@ int valid_database(FILE *fp)
     if (fp == NULL)
         return FAILURE;
 
-    /* Check the file is large enough to contain at least two '#' characters.
-     * fseek(fp, -2, SEEK_END) on a file shorter than 2 bytes is undefined behaviour. */
+    /* Check the file is large enough to contain at least two '#' characters
+     * fseek(fp, -2, SEEK_END) on a file shorter than 2 bytes is undefined behaviour */
     if (fseek(fp, 0, SEEK_END) != 0)
     {
         rewind(fp);
@@ -216,7 +215,7 @@ int valid_database(FILE *fp)
     if (size < 2)
         return FAILURE;
 
-    /* Check first character */
+    // Check first character
     char ch = fgetc(fp);
     if (ch != '#')
     {

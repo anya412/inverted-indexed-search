@@ -1,7 +1,7 @@
 /***********************************************************************
  *  File name   : list.h
  *  Description : Header file for linked list and hash table structures 
- *                used in the Inverted Search Project.
+ *                used in the Inverted Indexed Search Project.
  *                Contains structure definitions and function prototypes 
  *                for managing:
  *                - File list (input files)
@@ -41,7 +41,7 @@
 /* ----------- Structures ----------- */
 
 /* SubNode:
- * Stores filename and the count of occurrences of a word in that file.
+ * Stores filename and the count of occurrences of a word in that file
  */
 typedef struct SubNode
 {
@@ -52,7 +52,7 @@ typedef struct SubNode
 
 /* MainNode:
  * Stores a unique word, count of files it appears in,
- * and a linked list of SubNodes (file → wordCount mapping).
+ * and a linked list of SubNodes (file → wordCount mapping)
  */
 typedef struct MainNode
 {
@@ -63,7 +63,7 @@ typedef struct MainNode
 } MainNode;
 
 /* FileList:
- * Singly linked list to store input filenames.
+ * Singly linked list to store input filenames
  */
 typedef struct FileList
 {
@@ -72,7 +72,7 @@ typedef struct FileList
 } FileList;
 
 /* HashTable:
- * Stores index (bucket) and pointer to MainNode linked list.
+ * Stores index (bucket) and pointer to MainNode linked list
  */
 typedef struct HashTable
 {

@@ -1,6 +1,6 @@
 /***********************************************************************
  *  File name   : main.c
- *  Description : Entry point for the Inverted Search Project.
+ *  Description : Entry point for the Inverted Indexed Search Project.
  *                Handles command-line arguments, initializes the hash
  *                table, validates input files, and provides a menu-driven
  *                interface to manage the database.
@@ -22,7 +22,6 @@
  *                - search_word()
  *                - save_database()
  *                - update_database()
- * 
  ***********************************************************************/
 
 #include "list.h"
@@ -31,7 +30,7 @@
 
 int main(int argc, char ** argv)
 {
-    // Check if minimum 2 arguments are passed (program name + at least 1 file)
+    /* Check if minimum 2 arguments are passed (program name + at least 1 file) */
     if (argc < 2)
     {
         fprintf(stderr, "Insufficient Arguments:\nCorrect Syntax : %s filename.txt filename.txt ...\n", argv[0]);
@@ -44,7 +43,7 @@ int main(int argc, char ** argv)
     // Initialize the hash table
     initialize_hashTable(hashTablle, MAX_HASH_SIZE);
 
-    // Validate input files and build the file list
+    /* Validate input files and build the file list */
     if (read_and_validate_args(&filelist, argv, argc) == FAILURE)
         return FAILURE;
 
@@ -112,7 +111,7 @@ int main(int argc, char ** argv)
                 break;
 
             case '5':
-                // Update database from a file, only if its not created/updated already
+                /* Update database from a file, only if its not created/updated already */
                 if (create_flag)
                 {
                     fprintf(stderr, "\nINFO: Database already created. Cannot update Database\n");

@@ -3,7 +3,6 @@
  *  Description : Header file for database operations in the Inverted Search project.
  *                Provides function prototypes for creating, displaying, 
  *                searching, saving, and updating the database.
- *
  ***********************************************************************/
 
 #ifndef DATABASE_H
